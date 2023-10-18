@@ -16,7 +16,7 @@ fetch(
     // 전체 데이터 중 results 배열만 가져오기
     let movieArr = response.results;
 
-    // results 안에 배열 하나하나 돌면서 title, overview, rating, id 값 가져오기
+    // results 안에 하나하나 돌면서 title, overview, rating, id 값 가져오기
     for (let i in movieArr) {
       // console.log(movieArr[i]);
       let movie = movieArr[i];
