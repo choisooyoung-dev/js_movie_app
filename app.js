@@ -1,3 +1,10 @@
+let posterBox = document.querySelector(".posterBox");
+let div = document.createElement("div");
+let title = document.querySelector(".title");
+let overview = document.querySelector(".overview");
+let image = document.querySelector(".posterImg");
+let id = document.querySelector(".posterId");
+
 const options = {
   method: "GET",
   headers: {
@@ -14,24 +21,51 @@ fetch(
   .then((response) => response.json())
   .then((response) => {
     // 전체 데이터 중 results 배열만 가져오기
-    let movieArr = response.results;
+    let movieResult = response.results;
+    let movieArr = [...movieResult];
 
-    // results 안에 하나하나 돌면서 title, overview, rating, id 값 가져오기
-    for (let i in movieArr) {
-      // console.log(movieArr[i]);
-      let movie = movieArr[i];
-      let title = movie.title;
-      let overview = movie.overview;
+    movieArr.forEach((movie, i) => {
+      let temp = document.createElement("div");
+      temp.setAttribute("class", "poster");
+      let movieTitle = movieArr[i].title;
+      let movieOverview = movieArr[i].overview;
+      // api에서 제공하는 이미지는 맨 뒤 /부터만 저장되어있음
+      let movieImg = `https://image.tmdb.org/t/p/w500${movieArr[i].backdrop_path}`;
+      // 클릭시 나와야함// id.innerText = movieId;
+      let movieId = movieArr[i].id;
+      let movieRating = movieArr[i].vote_average;
 
-      // 10점을 별 다섯개로 표현할것이므로 나누기 2 해준 후에 반올림 해줬음
-      // i.star 1점마다 1개 append, 가로정렬 ⭐️⭐️⭐️⭐️⭐️
-      let rating = Math.round(movie.vote_average / 2);
-      let id = movie.id;
+      temp.innerHTML = `
+          <div class="posterImgBox">
+            <img
+              class="posterImg"
+              src=${movieImg}
+              alt="poster image"
+            />
+            <div class="posterContentsBox">
+              <span class="posterId">${movieId}</span>
+              <h2 class="title">${movieTitle}</h2>
+              <div class="ratingBox">
+                <span class="rating">${movieRating}</span>
+              </div>
+              <p class="overview">${movieOverview}</p>
+            </div>
+          </div>
+  `;
 
-      // console.log(title);
-      // console.log(overview);
-      // console.log(rating);
-      // console.log(id);
-    }
+      document.querySelector(".posterBox").append(temp);
+    });
   })
   .catch((err) => console.error(err));
+
+// 메일 아이콘 누르면 메일 주소 복사
+// ClipboardJS with CDN
+function copy() {
+  var clipboard = new ClipboardJS(".mail");
+  clipboard.on("success", function (e) {
+    console.log("Copy");
+  });
+  clipboard.on("error", function (e) {
+    console.log("Copy Failed");
+  });
+}
