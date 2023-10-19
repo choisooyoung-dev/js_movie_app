@@ -1,17 +1,23 @@
 // Search
 
-const searchInput = document.querySelector(".searchInput");
 const searchBtn = document.querySelector(".searchBtn");
 
 export function searchFunc(movieArr) {
-  let movieTitleArr = [];
   searchBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    movieArr.forEach((movie) => {
-      movieTitleArr.push(movie.title);
+    let searchResult = [];
+
+    searchResult = movieArr.filter((movie) => {
+      let searchInputVal = document.querySelector(".searchInput").value;
+      // console.log(typeof movie.title.includes(searchInputVal));
+      let sameVal = movie.title.includes(searchInputVal);
+      if (sameVal) {
+        // sameArr.push(movie);
+        return movie;
+      }
     });
-    movieTitleArr.includes(searchInput.value)
-      ? console.log("yes")
-      : console.log("no");
+    console.log(searchResult);
+    console.log(typeof searchResult);
   });
+  return searchResult;
 }

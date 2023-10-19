@@ -1,6 +1,6 @@
 import { drawFunc } from "./drawPoster.js";
 import { searchFunc } from "./searchFunc.js";
-
+const searchBtn = document.querySelector(".searchBtn");
 const options = {
   method: "GET",
   headers: {
@@ -20,7 +20,16 @@ fetch(
     let movieResult = response.results;
     let movieArr = [...movieResult];
 
+    // 전체 데이터 그려줌
     drawFunc(movieArr);
+
+    // 전체 데이터 가지고 검색 filter 하는 함수
     searchFunc(movieArr);
   })
   .catch((err) => console.error(err));
+
+// window.enterkeySearch = () => {
+//   if (window.event.keyCode == 13) {
+//     searchFunc(movieArr);
+//   }
+// };
