@@ -1,9 +1,11 @@
 // poster 그려주기
+const searchInputVal = document.querySelector(".searchInput").value;
 
 export function drawFunc(movieArr) {
   movieArr.filter((movie, i) => {
     let temp = document.createElement("div");
     temp.setAttribute("class", "poster");
+    temp.childNodes.emp;
     let movieTitle = movieArr[i].title;
     let movieOverview = movieArr[i].overview;
     // api에서 제공하는 이미지는 맨 뒤 /부터만 저장되어있음
@@ -12,17 +14,29 @@ export function drawFunc(movieArr) {
     // 클릭시 나와야함
     let movieId = movieArr[i].id;
     let movieRating = movieArr[i].vote_average;
+
     let limitLength = 200;
-    console.log(movieOverview.length);
+
+    // console.log(movieOverview.length);
+    // 글자 길이 elipsis 처리
     if (movieOverview.length >= limitLength) {
       movieOverview = movieOverview.substr(0, limitLength - 2) + "...";
     }
 
+    // 줄거리가 없으면
     if (!movieOverview) {
       movieOverview = "이 영화는 줄거리가 제공되지 않습니다.";
     }
 
-    temp.innerHTML = `
+    // movieArr이 없으면 -> 검색 결과가 없는 경우
+    if (movieArr.length === 0) {
+      temp.innerHTML = `
+    <div class="card bg-dark text-white">
+      <div class='movieTitle'>검색 결과가 없습니다.</div>
+    </div>
+    `;
+    } else {
+      temp.innerHTML = `
       <div class="card bg-dark text-white">
       <div class='movieId'>${movieId}</div>
       <img src="${movieImg}" class="card-img posterImg" alt="movie poster image">
@@ -35,9 +49,13 @@ export function drawFunc(movieArr) {
       </div>
     </div>
     `;
+    }
+
     document.querySelector(".posterBox").append(temp);
+
     // 모달 할지 말지 고민중
     temp.addEventListener("click", (e) => {
+      e.preventDefault();
       alert(`해당 영화의 id => ${movieId}`);
     });
   });
