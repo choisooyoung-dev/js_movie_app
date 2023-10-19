@@ -33,6 +33,10 @@ fetch(
       // const poster = document.querySelectorAll(".poster");
       // const titleVal = document.querySelector(".title").textContent;
       e.preventDefault();
+      show();
+    });
+
+    function show() {
       const inpuVal = document.querySelector(".searchInput").value;
       if (inpuVal === "") {
         alert("검색어를 입력해주세요.");
@@ -46,12 +50,6 @@ fetch(
 
         drawFunc(search);
       }
-    });
+    }
   })
   .catch((err) => console.error(err));
-
-// window.enterkeySearch = () => {
-//   if (window.event.keyCode == 13) {
-//     searchFunc(movieArr);
-//   }
-// };
