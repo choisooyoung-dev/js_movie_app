@@ -11,6 +11,21 @@
 
 > To Do List
 
+- [ ] 검색기능
+- [ ] 검색 엔터로 가능하게
+- [ ] css 작업
+- [ ] alert창 ok 누르면 상세페이지 모달창으로 띄우기
+- [ ] 랜딩 후 커서 검색창에 자동 위치
 - [x] api 연동
-- [ ] html, css 작업
-- [ ] 자바스크립트 파일에서 api에서 받아온 정보들 올려주기
+- [x] html
+- [x] css flex
+- [x] 웹폰트
+- [x] bootstrap link
+- [x] 자바스크립트 파일에서 api에서 받아온 정보들 올려주기
+- [x] 모듈화, 파일 정리
+- [x] let, const 사용
+- [x] dom 제어 2개 사용 -> document.querySelector, addEventListener("click", (e) => {})
+- [x] 배열메소드 2개 사용 -> forEach, filter
+- [x] arrow function
+- [x] 카드 클릭시 해당 카드 id 값 alert창 띄우기
+- [x] footer, logo 링크 연결
