@@ -5,7 +5,7 @@ export function drawFunc(movieArr) {
   movieArr.filter((movie, i) => {
     let temp = document.createElement("div");
     temp.setAttribute("class", "poster");
-    temp.childNodes.emp;
+    // temp.innerHTML = "";
     let movieTitle = movieArr[i].title;
     let movieOverview = movieArr[i].overview;
     // api에서 제공하는 이미지는 맨 뒤 /부터만 저장되어있음

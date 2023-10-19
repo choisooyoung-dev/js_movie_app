@@ -1,5 +1,7 @@
 import { drawFunc } from "./drawPoster.js";
 import { searchFunc } from "./searchFunc.js";
+const posterBox = document.querySelector(".posterBox");
+
 const searchBtn = document.querySelector(".searchBtn");
 const options = {
   method: "GET",
@@ -16,20 +18,38 @@ fetch(
 )
   .then((response) => response.json())
   .then((response) => {
-    // 전체 데이터 중 results 배열만 가져오기
+    // 전체 데이터
     let movieResult = response.results;
+
+    // 전체 데이터 배열
     let movieArr = [...movieResult];
 
     // 전체 데이터 그려줌
     drawFunc(movieArr);
 
     // 전체 데이터 가지고 검색 filter 하는 함수
-    searchFunc(movieArr);
+    // const search = searchFunc(movieArr);
+    searchBtn.addEventListener("click", (e) => {
+      // const poster = document.querySelectorAll(".poster");
+      // const titleVal = document.querySelector(".title").textContent;
+      e.preventDefault();
+      show();
+    });
+
+    function show() {
+      const inpuVal = document.querySelector(".searchInput").value;
+      if (inpuVal === "") {
+        alert("검색어를 입력해주세요.");
+      } else {
+        movieArr = [...movieResult];
+        posterBox.replaceChildren();
+        const search = searchFunc(movieArr);
+        console.log(search); // [{...}, {...}, ...]
+        movieArr = [];
+        movieArr.push(search);
+
+        drawFunc(search);
+      }
+    }
   })
   .catch((err) => console.error(err));
-
-// window.enterkeySearch = () => {
-//   if (window.event.keyCode == 13) {
-//     searchFunc(movieArr);
-//   }
-// };
