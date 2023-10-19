@@ -28,7 +28,6 @@ fetch(
     let movieArr = [...movieResult];
 
     drawFunc(movieArr);
-    contentsHover();
     searchFunc(movieArr);
 
     // // 모달 할지 말지 고민중
@@ -57,13 +56,19 @@ function drawFunc(movieArr) {
     //   movieOverview = movieOverview.substr(0, limitLength - 2) + "...";
     // }
 
+    if (!movieOverview) {
+      movieOverview = "이 영화는 줄거리가 제공되지 않습니다.";
+    }
+
     temp.innerHTML = `
     <div class="card bg-dark text-white">
     <img src="${movieImg}" class="card-img posterImg" alt="movie poster image">
-    <div class="card-img-overlay">
-      <h5 class="card-title">${movieTitle}</h5>
-      <p class="card-text">${movieOverview}</p>
-      <p class="card-text"><i class="fa-solid fa-star"></i>${movieRating}</p>
+    <div class="card-img-overlay posterContentsBox">
+      <h5 class="card-title title">${movieTitle}</h5>
+      <div class="contentWrap">
+      <p class="card-text overview">${movieOverview}</p>
+      <p class="card-text"><i class="fa-solid fa-star star"></i>${movieRating}</p>
+      </div>
     </div>
   </div>
   `;
@@ -73,36 +78,14 @@ function drawFunc(movieArr) {
 
 function searchFunc(movieArr) {
   let movieTitleArr = [];
-  // 검색 버튼 눌렀을때
   searchBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    movieArr.forEach((movie, i) => {
-      let movieTitle = movieArr[i].title;
-      console.log(movieTitle);
-      // input 값이 있다면
-      if (searchInput.value) {
-        movieTitleArr.includes(searchInput.value)
-          ? console.log("yes")
-          : console.log("no");
-        // input값이랑 영화 제목 비교해서 한글자라도 맞으면
-        // movieArr 배열에 같은 값 전체 객체 넣어주고
-        // drawFunc 해주기
-      } else {
-        // input 값이 없다면
-        alert("검색어를 입력해주세요!");
-      }
+    movieArr.forEach((movie) => {
+      movieTitleArr.push(movie.title);
     });
-  });
-}
-
-// posterBox에 마우스 올리면 contentsbox 보이기
-function contentsHover() {
-  image.addEventListener("mouseenter", () => {
-    if (posterContentsBox.style.display == "none") {
-      posterContentsBox.style.display == "flex";
-    } else {
-      posterContentsBox.style.display == "none";
-    }
+    movieTitleArr.includes(searchInput.value)
+      ? console.log("yes")
+      : console.log("no");
   });
 }
 
