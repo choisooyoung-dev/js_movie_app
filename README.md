@@ -1,5 +1,7 @@
 # Soovie
 
+[Soovie app link]("https://github.com/choisooyoung-dev/soovie_app.git")
+
 > 바닐라 자바스크립트로 영화 평점 사이트 구현하기
 
 - No jQuery
@@ -11,11 +13,11 @@
 
 > To Do List
 
-- [ ] 검색기능
-- [ ] 검색 엔터로 가능하게
-- [ ] css 작업
 - [ ] alert창 ok 누르면 상세페이지 모달창으로 띄우기
 - [ ] 랜딩 후 커서 검색창에 자동 위치
+- [x] 검색기능
+- [x] 검색 엔터로 가능하게
+- [x] css 작업
 - [x] api 연동
 - [x] html
 - [x] css flex
