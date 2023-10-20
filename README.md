@@ -1,4 +1,4 @@
-# Soovie
+# JS MOVIE APP
 
 **click LOGO!!**  
 <br />
