@@ -31,3 +31,4 @@
 - [x] arrow function
 - [x] 카드 클릭시 해당 카드 id 값 alert창 띄우기
 - [x] footer, logo 링크 연결
+- [x] footer email 아이콘 누르면 메일주소 복사, 복사완료 alert창 띄우기
