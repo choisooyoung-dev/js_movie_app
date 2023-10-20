@@ -1,6 +1,6 @@
 # Soovie
 
-[Soovie app link click!](https://github.com/choisooyoung-dev/soovie_app.git)
+[Soovie app link click!](https://choisooyoung-dev.github.io/soovie_app/)
 
 > 바닐라 자바스크립트로 영화 평점 사이트 구현하기
 
