@@ -1,7 +1,7 @@
+import { copy } from "./copy.js";
 import { drawFunc } from "./drawPoster.js";
 import { searchFunc } from "./searchFunc.js";
 const posterBox = document.querySelector(".posterBox");
-
 const searchBtn = document.querySelector(".searchBtn");
 const options = {
   method: "GET",
@@ -47,9 +47,11 @@ fetch(
         console.log(search); // [{...}, {...}, ...]
         movieArr = [];
         movieArr.push(search);
-
         drawFunc(search);
       }
     }
   })
   .catch((err) => console.error(err));
+
+// 메일 아이콘 누르면 주소 복사
+copy();
