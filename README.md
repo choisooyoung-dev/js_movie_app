@@ -1,4 +1,4 @@
-# JS MOVIE APP
+# JS MOVIE APP
 
 **click LOGO!!**  
 <br />
