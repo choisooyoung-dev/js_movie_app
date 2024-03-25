@@ -4,19 +4,18 @@
 <br />
 [![Logo_png](./logo.png)](https://choisooyoung-dev.github.io/soovie_app/)
 
-> 바닐라 자바스크립트로 영화 평점 사이트 구현하기
-
+- 바닐라 자바스크립트로 영화 평점 사이트 구현하기
 - No jQuery
-- API 제목, 평점, 내용, 포스터 사진 가져오기
+- TMDB API 활용 영화 제목, 평점, 내용, 포스터 사진 가져오기
 
   <br />
 
 <hr />
 
-> To Do List
+<details>
+<summary>To Do List</summary>
+<div markdown="1">
 
-- [ ] alert창 ok 누르면 상세페이지 모달창으로 띄우기
-- [ ] 랜딩 후 커서 검색창에 자동 위치
 - [x] 검색기능
 - [x] 검색 엔터로 가능하게
 - [x] css 작업
@@ -34,3 +33,6 @@
 - [x] 카드 클릭시 해당 카드 id 값 alert창 띄우기
 - [x] footer, logo 링크 연결
 - [x] footer email 아이콘 누르면 메일주소 복사, 복사완료 alert창 띄우기
+
+</div>
+</details>
