@@ -4,11 +4,18 @@
 <br />
 [![Logo_png](./logo.png)](https://choisooyoung-dev.github.io/soovie_app/)
 
-- 바닐라 자바스크립트로 영화 평점 사이트 구현하기
-- No jQuery
-- TMDB API 활용 영화 제목, 평점, 내용, 포스터 사진 가져오기
+## 프로젝트 설명
 
-  <br />
+- TMDB API 활용 영화 평점 사이트 구현
+
+## 기술 스택
+
+<img src="https://img.shields.io/badge/JavaScript-FFCA28?style=for-the-badge&logo=JavaScript&logoColor=white">
+
+## 상세 기능
+
+- 영화의 평점과 줄거리를 보여줍니다.
+- 원하는 영화를 검색할 수 있습니다.
 
 <hr />
 
